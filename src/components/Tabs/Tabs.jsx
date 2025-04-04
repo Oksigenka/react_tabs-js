@@ -13,9 +13,9 @@ export const Tabs = ({ tabs, onTabSelected, activeTabId }) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={cn({ 'is-active': tab.id === selectedTab.id })}
+              className={cn({ 'is-active': tab === selectedTab })}
               onClick={() => {
-                if (selectedTab.id !== tab.id) {
+                if (activeTabId.id !== tab.id) {
                   onTabSelected(tab);
                 }
               }}
