@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 export const Tabs = ({ tabs, onTabSelected, activeTabId }) => {
   const selectedTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
@@ -13,12 +11,8 @@ export const Tabs = ({ tabs, onTabSelected, activeTabId }) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={cn({ 'is-active': tab === selectedTab })}
-              onClick={() => {
-                if (activeTabId.id !== tab.id) {
-                  onTabSelected(tab);
-                }
-              }}
+              className={tab === selectedTab ? 'is-active' : ''}
+              onClick={() => onTabSelected(tab)}
             >
               <a href={`#${tab.id}`} data-cy="TabLink">
                 {tab.title}
